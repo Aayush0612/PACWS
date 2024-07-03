@@ -1,0 +1,74 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 20px;
+    width: 300px;
+    background-color: #f0f0f0;
+    color: #333;
+  }
+  
+  h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #2c3e50;
+  }
+  
+  button, select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
+  }
+  
+  button {
+    background-color: #3498db;
+    color: white;
+  }
+  
+  button:hover {
+    background-color: #2980b9;
+    transform: scale(1.02);
+  }
+  
+  button:active {
+    transform: scale(0.98);
+  }
+  
+  #start-scraping {
+    background-color: #2ecc71;
+  }
+  
+  #start-scraping:hover {
+    background-color: #27ae60;
+  }
+  
+  #stop-scraping {
+    background-color: #e74c3c;
+  }
+  
+  #stop-scraping:hover {
+    background-color: #c0392b;
+  }
+  
+  select {
+    background-color: white;
+    color: #333;
+    margin-top: 20px;
+  }
+  
+  select:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #3498db;
+  }
+  
+  #export-data, #export-code {
+    background-color: #f39c12;
+  }
+  
+  #export-data:hover, #export-code:hover {
+    background-color: #d35400;
+  }
