@@ -5,6 +5,17 @@
   
   window.scraperInitialized = true;
 
+  function setupScraper() {
+    chrome.storage.local.get(['scraperActive'], (result) => {
+      if (result.scraperActive === true) {
+        document.addEventListener('click', handleClick, true);
+        const style = document.createElement('style');
+        style.innerHTML = `.scraper-outline { outline: 2px solid red; }`;
+        document.head.appendChild(style);
+      }
+    });
+  }
+
   function handleClick(event) {
     event.preventDefault();
     event.stopPropagation();
@@ -24,13 +35,23 @@
     });
   }
 
-  chrome.storage.local.get(['scraperActive'], (result) => {
-    if (result.scraperActive !== false) {
-      document.addEventListener('click', handleClick, true);
+  setupScraper();
+
+  // Listen for messages from the popup
+  chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+    if (message.action === 'stopScraping') {
+      document.removeEventListener('click', handleClick, true);
+      document.querySelectorAll('.scraper-outline').forEach(el => el.classList.remove('scraper-outline'));
     }
   });
 
-  const style = document.createElement('style');
-  style.innerHTML = `.scraper-outline { outline: 2px solid red; }`;
-  document.head.appendChild(style);
+  // Re-check scraper status when the tab becomes active
+  document.addEventListener('visibilitychange', () => {
+    if (!document.hidden) {
+      setupScraper();
+    }
+  });
+
+  // Periodically check if scraping should be active
+  setInterval(setupScraper, 1000);
 })();
