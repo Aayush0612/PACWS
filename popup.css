@@ -1,5 +1,6 @@
 body {
   font-family: Courier, monospace;
+  font-weight: bold;
   padding: 20px;
   width: 300px;
   background-color: #012030;
@@ -8,6 +9,7 @@ body {
 
 h1 {
   font-size: 24px;
+  font-weight: bold;
   margin-bottom: 20px;
   text-align: center;
   color: #45C4B0;
@@ -40,26 +42,31 @@ button:active {
 
 #start-scraping {
   font-family: Courier, monospace;
+  font-weight: bold;
   background-color: #45C4B0;
 }
 
 #start-scraping:hover {
   font-family: Courier, monospace;
+  font-weight: bold;
   background-color: #DAFDBA;
 }
 
 #stop-scraping {
   font-family: Courier, monospace;
+  font-weight: bold;
   background-color: #45C4B0;
 }
 
 #stop-scraping:hover {
   font-family: Courier, monospace;
+  font-weight: bold;
   background-color: #DAFDBA;
 }
 
 select {
   font-family: Courier, monospace;
+  font-weight: bold;
   background-color: #DAFDBA;
   color: #012030;
   margin-top: 20px;
@@ -72,10 +79,12 @@ select:focus {
 
 #export-data, #export-code {
   font-family: Courier, monospace;
+  font-weight: bold;
   background-color: #13678A;
 }
 
 #export-data:hover, #export-code:hover {
   font-family: Courier, monospace;
+  font-weight: bold;
   background-color: #45C4B0;
 }
