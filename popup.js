@@ -1,20 +1,20 @@
+document.addEventListener('DOMContentLoaded', () => {
+
 document.getElementById('start-scraping').addEventListener('click', async () => {
   // Clear existing data
-  chrome.storage.local.set({ scrapedData: [] });
+  chrome.storage.local.set({ scrapedData: [], scraperActive: true });
 
   let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
   chrome.scripting.executeScript({
     target: { tabId: tab.id },
     files: ['content.js']
   });
-});
+}); 
 
 document.getElementById('stop-scraping').addEventListener('click', async () => {
+  chrome.storage.local.set({ scraperActive: false });
   let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
-  chrome.scripting.executeScript({
-    target: { tabId: tab.id },
-    func: stopScraping
-  });
+  chrome.tabs.sendMessage(tab.id, { action: 'stopScraping' });
 });
 
 document.getElementById('export-data').addEventListener('click', () => {
@@ -64,3 +64,5 @@ function exportData(format) {
     URL.revokeObjectURL(url);
   });
 }
+
+});
