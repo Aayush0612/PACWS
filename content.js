@@ -10,7 +10,7 @@
       if (result.scraperActive === true) {
         document.addEventListener('click', handleClick, true);
         const style = document.createElement('style');
-        style.innerHTML = `.scraper-outline { outline: 2px solid red; }`;
+        style.innerHTML = `.scraper-outline { outline: 2px solid cyan; }`;
         document.head.appendChild(style);
       }
     });
